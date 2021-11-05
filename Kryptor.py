@@ -16,7 +16,7 @@ print('''
                      
                      
                      
-                     ENCODE XOR                                
+                     ENCODE XOR AND cesar CHRF                        
  /$$   /$$        /$$$$$$        /$$$$$$$                             
 | $$  / $$       /$$__  $$      | $$__  $$                            
 |  $$/ $$/      | $$  \ $$      | $$  \ $$                            
@@ -25,15 +25,14 @@ print('''
  /$$/\  $$      | $$  | $$      | $$  \ $$                            
 | $$  \ $$      |  $$$$$$/      | $$  | $$                            
 |__/  |__/       \______/       |__/  |__/                            
-                                               
-                                                                      
+                                        __       
+                                       /%/                               
 ██╗   ██╗ ██╗    ██████╗     ██████╗ ███████╗████████╗ █████╗ 
 ██║   ██║███║   ██╔═████╗    ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗
 ██║   ██║╚██║   ██║██╔██║    ██████╔╝█████╗     ██║   ███████║
 ╚██╗ ██╔╝ ██║   ████╔╝██║    ██╔══██╗██╔══╝     ██║   ██╔══██║
  ╚████╔╝  ██║██╗╚██████╔╝    ██████╔╝███████╗   ██║   ██║  ██║
   ╚═══╝   ╚═╝╚═╝ ╚═════╝     ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝
-  V1.0 Beta 
 ]|                                                              
 ||>>>>>>>>>>>>>>>>>>>>>           
 ||FurySec            ||
@@ -41,19 +40,37 @@ print('''
 ||>>>>>>>>>>>>>>>>>>>>>
 ]|
 .________________________.
-| www.furysec7.webnode.fr| 
+| www.furysec.webnode.fr | 
 |.______________________.|
 ''')
-entree = input("Name of file to Crypt/Uncrypt >>> ")
-sortie = input("Final file : ")
-key = input("Key  : ")
-keys = sha256(key.encode('utf-8')).digest()
-with open(entree,'rb') as f_entree:
- with open(sortie,'wb') as f_sortie:
-  i = 0
-  while f_entree.peek():
-    c = ord(f_entree.read(1))
-    j = i % len(keys)
-    b = bytes([c^keys[j]])
-    f_sortie.write(b)
-    i = i + 1 
+mode = int(input("Cesar = 1 [only for words not files] |   XOR = 2 (files)>>> "))
+if mode ==2:
+   entree = input("Name of file to Crypt/Uncrypt >>> ")
+   sortie = input("Final file : ")
+   key = input("Key  : ")
+   keys = sha256(key.encode('utf-8')).digest()
+   with open(entree,'rb') as f_entree:
+    with open(sortie,'wb') as f_sortie:
+     i = 0
+     while f_entree.peek():
+       c = ord(f_entree.read(1))
+       j = i % len(keys)
+       b = bytes([c^keys[j]])
+       f_sortie.write(b)
+       i = i + 1 
+else:
+  Messageacrypter= input("Words to be crypted >>> ")
+  cle=24 
+
+  acrypter=Messageacrypter.upper()
+  lg=len(acrypter)
+  MessageCrypte=""
+
+  for i in range(lg):
+      if acrypter[i]==' ':
+        MessageCrypte+=' '
+      else:
+          asc=ord(acrypter[i])+cle
+          MessageCrypte+=chr(asc+26*((asc<65)-(asc>90)))
+
+          print(MessageCrypte)
