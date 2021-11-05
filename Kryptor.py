@@ -40,7 +40,7 @@ print('''
 ||>>>>>>>>>>>>>>>>>>>>>
 ]|
 .________________________.
-| www.furysec.webnode.fr | 
+| www.furysec7.webnode.fr| 
 |.______________________.|
 ''')
 entree = input("Name of file to Crypt/Uncrypt >>> ")
