@@ -1,4 +1,3 @@
-import os
 os.system("clear")
 from hashlib import sha256
 print('''
@@ -33,6 +32,8 @@ print('''
 ╚██╗ ██╔╝ ██║   ████╔╝██║    ██╔══██╗██╔══╝     ██║   ██╔══██║
  ╚████╔╝  ██║██╗╚██████╔╝    ██████╔╝███████╗   ██║   ██║  ██║
   ╚═══╝   ╚═╝╚═╝ ╚═════╝     ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝
+
+XOR IS ONLY FOR LINUX !
 ]|                                                              
 ||>>>>>>>>>>>>>>>>>>>>>           
 ||FurySec            ||
@@ -42,8 +43,12 @@ print('''
 .________________________.
 | www.furysec.webnode.fr | 
 |.______________________.|
+DO NOT USE XOR ON WINDOWS !
+:-++===[Use it on windows at  your own risks]===++-:
+on windows Kryptor do not crypt the file HE DESTROY IT !
 ''')
-mode = int(input("Cesar = 1 [only for words not files] |   XOR = 2 (files)>>> "))
+print("3 to decrypt Cersar [words]")
+mode = int(input("Cesar = 1 [words] |   XOR = 2 [files]>>> "))
 if mode ==2:
    entree = input("Name of file to Crypt/Uncrypt >>> ")
    sortie = input("Final file : ")
